@@ -21,13 +21,11 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#pastor">Leadership</a></li>
-                <li><a href="#ministries">Ministries</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="#connect">Connect</a></li>
                 <li><a href="#visit">Plan a Visit</a></li>
+                <li><a href="hub.html" class="nav-members">Members</a></li>
                 <li><a href="#donate" class="nav-btn">Give</a></li>
             </ul>
         </nav>
@@ -35,25 +33,28 @@
 
     <!-- HERO -->
     <section id="home" class="hero">
-        <!-- Slideshow background — each slide gets its own Ken Burns direction -->
-        <div class="hero-slides">
-            <div class="hero-slide" style="background-image:url('Assets/one_year_celebration/1000021980.jpg')"></div>
-            <div class="hero-slide" style="background-image:url('Assets/activities/1000018693.jpg')"></div>
-            <div class="hero-slide" style="background-image:url('Assets/one_year_celebration/1000022004.jpg')"></div>
-            <div class="hero-slide" style="background-image:url('Assets/activities/1000020202.jpg')"></div>
-            <div class="hero-slide" style="background-image:url('Assets/one_year_celebration/1000021965.jpg')"></div>
-            <div class="hero-slide" style="background-image:url('Assets/activities/1000018561.jpg')"></div>
-        </div>
+        <!-- Slideshow background — built dynamically from HERO_IMAGES list in the script below -->
+        <div class="hero-slides" id="hero-slides"></div>
         <!-- Dark directional overlay -->
         <div class="hero-overlay"></div>
         <!-- Content -->
         <div class="hero-content">
             <span class="hero-eyebrow">Portlaoise, Ireland</span>
-            <h1>Welcome to<br>Bliss City Churches</h1>
+            <h1>Welcome to<br>Bliss City<br>Churches</h1>
             <p>A vibrant Pentecostal community built on faith, family, and the power of the Holy Spirit.</p>
             <div class="hero-actions">
                 <a href="#visit" class="btn">Join Us This Sunday</a>
-                <a href="#about" class="btn btn-ghost">Our Story</a>
+            </div>
+        </div>
+        <!-- Service line + scroll indicator -->
+        <div class="hero-meta">
+            <div class="hero-service-line">
+                <span class="hero-dot"></span>
+                This Sunday &middot; 10:00 AM &ndash; Portlaoise
+            </div>
+            <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+                <span>Scroll</span>
+                <i class="fas fa-arrow-down"></i>
             </div>
         </div>
         <!-- Wave into stats bar -->
@@ -89,16 +90,17 @@
 
     <!-- ABOUT -->
     <section id="about" class="about">
-        <div class="about-image fade-left" id="about-slideshow">
-            <img src="Assets/one_year_celebration/1000021866.jpg" alt="Bliss City Church Congregation" class="active">
-            <img src="Assets/one_year_celebration/1000021932.jpg" alt="Bliss City Church Worship">
-            <img src="Assets/one_year_celebration/1000021797.jpg" alt="Bliss City Church Community">
-            <img src="Assets/one_year_celebration/1000021989.jpg" alt="Bliss City Church Fellowship">
+        <div class="about-left fade-left">
+            <img src="Assets/one_year_celebration/1000021866.jpg" alt="Bliss City Church Congregation">
         </div>
-        <div class="about-text fade-right">
-            <h2>Who We Are</h2>
+        <div class="about-right fade-right">
+            <span class="about-eyebrow">Who We Are</span>
+            <h2>A church family rooted in Portlaoise</h2>
             <p>Bliss City Churches is a passionate Pentecostal community located in Portlaoise. We believe in the power of faith, community, and the Holy Spirit. Whether you have been a Christian your whole life or are just exploring your faith, you will find a welcoming home here with us.</p>
             <a href="#visit" class="btn">Plan Your Visit</a>
+            <div class="about-second-img">
+                <img src="Assets/one_year_celebration/1000021932.jpg" alt="Bliss City Church Community">
+            </div>
         </div>
     </section>
 
@@ -152,46 +154,24 @@
         </div>
     </section>
 
-    <!-- ACTIVITIES -->
-    <section id="activities" class="activities">
-        <h2 class="fade-up">Life at Bliss City</h2>
-        <p class="section-sub fade-up" data-delay="100">From our Keri retreats and couples&rsquo; getaways to community gatherings &mdash; a glimpse into the moments that make us family.</p>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="Assets/activities/1000018693.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018561.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018093.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018792.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018573.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018696.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018542.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018102.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000018099.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000020202.jpg" alt="Church Activities" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/activities/1000020211.jpg" alt="Church Activities" loading="lazy"></div>
+    <!-- GALLERY TEASER -->
+    <section id="gallery" class="gallery-teaser">
+        <div class="teaser-text fade-left">
+            <span class="about-eyebrow">Our Community</span>
+            <h2>Life at Bliss City</h2>
+            <p>From our one-year anniversary celebrations to Keri retreats and community gatherings &mdash; a glimpse into the moments that make us family.</p>
+            <a href="gallery.html" class="btn">View All Photos</a>
         </div>
-    </section>
-
-    <!-- ONE YEAR CELEBRATION -->
-    <section id="celebration" class="celebration">
-        <h2 class="fade-up">One Year Celebration</h2>
-        <p class="section-sub fade-up" data-delay="100">In 2024 we marked one incredible year of God&rsquo;s faithfulness with our Bliss City family in Portlaoise. Here are some of the moments we shared together.</p>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021866.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021980.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021962.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000022004.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021881.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021965.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000022007.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021959.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021968.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021989.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021797.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021767.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021779.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021770.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021932.jpg" alt="One Year Celebration" loading="lazy"></div>
-            <div class="gallery-item"><img src="Assets/one_year_celebration/1000020268.jpg" alt="One Year Celebration" loading="lazy"></div>
+        <div class="teaser-mosaic fade-right">
+            <div class="teaser-photo teaser-photo-tall">
+                <img src="Assets/one_year_celebration/1000021866.jpg" alt="Bliss City Congregation" loading="lazy">
+            </div>
+            <div class="teaser-photo">
+                <img src="Assets/activities/1000018693.jpg" alt="Church Activities" loading="lazy">
+            </div>
+            <div class="teaser-photo">
+                <img src="Assets/one_year_celebration/1000022004.jpg" alt="One Year Celebration" loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -290,14 +270,6 @@
         </div>
     </section>
 
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
-        <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
-        <img src="" alt="Photo" id="lightbox-img">
-        <span class="lightbox-next" id="lightbox-next">&#10095;</span>
-    </div>
-
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
@@ -357,7 +329,31 @@
             link.addEventListener('click', () => { nav.classList.remove('active'); });
         });
 
-        // ── Hero slideshow ────────────────────────────────────────
+        // ── Hero images ───────────────────────────────────────────
+        // To add or remove a photo from the hero slideshow:
+        //   1. Copy the image into the Assets/hero/ folder
+        //   2. Add or remove its filename in the list below
+        // That's it — no other changes needed.
+        const HERO_IMAGES = [
+            'Assets/hero/1000021980.jpg',
+            'Assets/hero/1000018693.jpg',
+            'Assets/hero/1000022004.jpg',
+            'Assets/hero/1000020202.jpg',
+            'Assets/hero/1000021965.jpg',
+            'Assets/hero/1000018561.jpg',
+        ];
+
+        // Builds slides and runs the Ken Burns rotation — no edits needed below this line
+        const KB_ANIMATIONS = ['kb-zoom-in','kb-pan-right','kb-pan-left','kb-zoom-out','kb-pan-up','kb-pan-down'];
+        const slidesContainer = document.getElementById('hero-slides');
+        HERO_IMAGES.forEach((src, i) => {
+            const div = document.createElement('div');
+            div.className = 'hero-slide';
+            div.style.backgroundImage = `url('${src}')`;
+            div.style.animationName = KB_ANIMATIONS[i % KB_ANIMATIONS.length];
+            slidesContainer.appendChild(div);
+        });
+
         const heroSlides = document.querySelectorAll('.hero-slide');
         let currentHeroSlide = 0;
         if (heroSlides.length > 0) {
@@ -369,59 +365,6 @@
             }, 6000);
         }
 
-        // ── About slideshow ───────────────────────────────────────
-        const slides = document.querySelectorAll('#about-slideshow img');
-        let currentSlide = 0;
-        if (slides.length > 1) {
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 4000);
-        }
-
-        // ── Lightbox (scoped per gallery) ─────────────────────────
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        let currentGalleryItems = [];
-        let currentLightboxIndex = 0;
-
-        function openLightbox(items, index) {
-            currentGalleryItems = items;
-            currentLightboxIndex = index;
-            lightboxImg.src = items[index].src;
-            lightbox.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        document.querySelectorAll('.gallery-grid').forEach(grid => {
-            const imgs = Array.from(grid.querySelectorAll('.gallery-item img'));
-            imgs.forEach((img, i) => {
-                img.parentElement.addEventListener('click', () => openLightbox(imgs, i));
-            });
-        });
-
-        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-        document.getElementById('lightbox-prev').addEventListener('click', () => {
-            currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
-            lightboxImg.src = currentGalleryItems[currentLightboxIndex].src;
-        });
-        document.getElementById('lightbox-next').addEventListener('click', () => {
-            currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryItems.length;
-            lightboxImg.src = currentGalleryItems[currentLightboxIndex].src;
-        });
-        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-        document.addEventListener('keydown', e => {
-            if (!lightbox.classList.contains('open')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
-            if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
-        });
     </script>
 
 </body>
