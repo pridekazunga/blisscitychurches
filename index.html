@@ -154,24 +154,46 @@
         </div>
     </section>
 
-    <!-- GALLERY TEASER -->
-    <section id="gallery" class="gallery-teaser">
-        <div class="teaser-text fade-left">
-            <span class="about-eyebrow">Our Community</span>
-            <h2>Life at Bliss City</h2>
-            <p>From our one-year anniversary celebrations to Keri retreats and community gatherings &mdash; a glimpse into the moments that make us family.</p>
-            <a href="gallery.html" class="btn">View All Photos</a>
+    <!-- ACTIVITIES -->
+    <section id="activities" class="activities">
+        <h2 class="fade-up">Life at Bliss City</h2>
+        <p class="section-sub fade-up" data-delay="100">From our Keri retreats and couples&rsquo; getaways to community gatherings &mdash; a glimpse into the moments that make us family.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="Assets/activities/1000018693.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018561.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018093.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018792.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018573.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018696.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018542.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018102.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000018099.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000020202.jpg" alt="Church Activities" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/activities/1000020211.jpg" alt="Church Activities" loading="lazy"></div>
         </div>
-        <div class="teaser-mosaic fade-right">
-            <div class="teaser-photo teaser-photo-tall">
-                <img src="Assets/one_year_celebration/1000021866.jpg" alt="Bliss City Congregation" loading="lazy">
-            </div>
-            <div class="teaser-photo">
-                <img src="Assets/activities/1000018693.jpg" alt="Church Activities" loading="lazy">
-            </div>
-            <div class="teaser-photo">
-                <img src="Assets/one_year_celebration/1000022004.jpg" alt="One Year Celebration" loading="lazy">
-            </div>
+    </section>
+
+    <!-- ONE YEAR CELEBRATION -->
+    <section id="celebration" class="celebration">
+        <h2 class="fade-up">One Year Celebration</h2>
+        <p class="section-sub fade-up" data-delay="100">In 2024 we marked one incredible year of God&rsquo;s faithfulness with our Bliss City family in Portlaoise. Here are some of the moments we shared together.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021866.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021980.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021962.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000022004.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021881.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021965.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000022007.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021959.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021968.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021989.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021797.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021767.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021779.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021770.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000021932.jpg" alt="One Year Celebration" loading="lazy"></div>
+            <div class="gallery-item"><img src="Assets/one_year_celebration/1000020268.jpg" alt="One Year Celebration" loading="lazy"></div>
         </div>
     </section>
 
@@ -270,6 +292,14 @@
         </div>
     </section>
 
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
+        <img src="" alt="Photo" id="lightbox-img">
+        <span class="lightbox-next" id="lightbox-next">&#10095;</span>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
@@ -365,6 +395,48 @@
             }, 6000);
         }
 
+        // ── Lightbox (scoped per gallery) ─────────────────────────
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentGalleryItems = [];
+        let currentLightboxIndex = 0;
+
+        function openLightbox(items, index) {
+            currentGalleryItems = items;
+            currentLightboxIndex = index;
+            lightboxImg.src = items[index].src;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.gallery-grid').forEach(grid => {
+            const imgs = Array.from(grid.querySelectorAll('.gallery-item img'));
+            imgs.forEach((img, i) => {
+                img.parentElement.addEventListener('click', () => openLightbox(imgs, i));
+            });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-prev').addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+            lightboxImg.src = currentGalleryItems[currentLightboxIndex].src;
+        });
+        document.getElementById('lightbox-next').addEventListener('click', () => {
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryItems.length;
+            lightboxImg.src = currentGalleryItems[currentLightboxIndex].src;
+        });
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+            if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+        });
     </script>
 
 </body>
